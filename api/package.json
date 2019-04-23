@@ -4,8 +4,8 @@
   "description": "api rest",
   "main": "app.js",
   "scripts": {
-    "build" : "tsc",
-    "start" : "nodemon ./build/server.js"
+    "build": "tsc",
+    "start": "nodemon ./build/server.js"
   },
   "author": "antonio medel",
   "license": "ISC",
