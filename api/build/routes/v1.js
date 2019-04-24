@@ -10,6 +10,8 @@ exports.default = (function (app) {
     postRoutes.get('/', Controllers_1.getAllPost);
     //postRoutes.get('/', getPostById)
     postRoutes.post('/', Controllers_1.CreatePost);
+    postRoutes.delete('/', Controllers_1.deletePost);
+    postRoutes.put('/', Controllers_1.updatePost);
     app.use('/api', apiRoutes);
 });
 //# sourceMappingURL=v1.js.map

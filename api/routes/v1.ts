@@ -21,6 +21,10 @@ export default (app) => {
 
     postRoutes.post('/', CreatePost)
 
+    postRoutes.delete('/', deletePost)
+
+    postRoutes.put('/', updatePost)
+
 
     app.use('/api', apiRoutes)
 

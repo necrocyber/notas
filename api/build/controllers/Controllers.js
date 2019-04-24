@@ -11,7 +11,7 @@ function getAllPost(req, res, next) {
 }
 exports.getAllPost = getAllPost;
 function getPostById(req, res, next) {
-    var id = req.params.id;
+    var id = req.body.id;
     models_1.default.findById(id, function (err, post) {
         if (err) {
             res.status(500).json({ err: err });
@@ -44,7 +44,7 @@ function CreatePost(req, res, next) {
 }
 exports.CreatePost = CreatePost;
 function updatePost(req, res, next) {
-    var id = req.params.id;
+    var id = req.body.id;
     models_1.default.findByIdAndUpdate(id, req.body, function (err, post) {
         if (err) {
             res.status(500).json({ err: err });
@@ -54,7 +54,8 @@ function updatePost(req, res, next) {
 }
 exports.updatePost = updatePost;
 function deletePost(req, res, next) {
-    var id = req.params.id;
+    var id = req.body.id;
+    console.log(id);
     models_1.default.findByIdAndRemove(id, function (err, post) {
         if (err) {
             res.status(500).json({ err: err });
