@@ -80,7 +80,36 @@ class Body extends Component {
     }
 
     handlerEdit() {
-        console.log(this.state);
+        
+        if(document.getElementById('titulo').value === '') {
+            alert('Debes seleccionar una nota para editarla')
+            return false;
+        }
+        fetch('http://localhost:3000/api/posts', {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id: this.state.id,
+                title: this.state.title,
+                content: this.state.content 
+            })
+        }).then((response) => {
+            return response.json()
+        }).then((result) => {
+            document.getElementById('titulo').value = ''
+            document.getElementById('contenido').value = ''
+            let notas = [...this.state.notas];  
+            let index = notas.findIndex((item) => {  
+                return item._id === result.post._id  
+            });
+            console.log(index);
+            notas[index].title = this.state.title
+            notas[index].content = this.state.content                   
+            this.setState({ notas }); 
+        })
     }
 
 
